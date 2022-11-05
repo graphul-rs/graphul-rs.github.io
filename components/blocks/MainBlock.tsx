@@ -45,7 +45,7 @@ class MainBlock extends Component {
           </div>
 
           <div className={styles.result}>
-            <BrowserWindow url="http://localhost:3000">
+            <BrowserWindow url="http://localhost:8000">
               <pre>Hello, World 👋!</pre>
             </BrowserWindow>
           </div>
