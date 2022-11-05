@@ -47,7 +47,7 @@ export default function App({ Component, pageProps }: AppProps) {
           content="https://github.com/graphul-rs/graphul/raw/main/img/logo.png"
         />
 
-        <link rel="icon" type="image/png" href="/assets/images/logo.png" />
+        <link rel="icon" type="image/png" href="./assets/images/logo.png" />
       </Head>
 
       <TheHeader />
