@@ -30,7 +30,8 @@ class MainBlock extends Component {
           </h2>
           <div className={styles.description}>
             Graphul is built with Rust. that means Graphul gets memory safety,
-            reliability, concurrency, and performance for free. helping to save money and energy 🔌 on infrastructure.
+            reliability, concurrency, and performance for free. helping to save
+            money and energy 🔌 on infrastructure.
           </div>
         </section>
 

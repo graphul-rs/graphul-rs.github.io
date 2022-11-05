@@ -29,10 +29,11 @@ class Templating extends Component {
         <div className="mid">
           <div className="left">
             <h3>Template Engines</h3>
-            <p>
-              Graphul supports multiple template engines.
-            </p>
-            <a href="https://github.com/graphul-rs/graphul/tree/main/examples/templates" target="_blank">
+            <p>Graphul supports multiple template engines.</p>
+            <a
+              href="https://github.com/graphul-rs/graphul/tree/main/examples/templates"
+              target="_blank"
+            >
               Example
             </a>
           </div>

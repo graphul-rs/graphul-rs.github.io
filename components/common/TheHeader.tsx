@@ -22,7 +22,10 @@ class TheHeader extends Component<{}, TheHeaderState> {
 
   private readonly links: GenericLink[] = [
     { url: 'https://crates.io/crates/graphul', text: '📖 Docs' },
-    { url: 'https://github.com/graphul-rs/graphul/tree/main/examples', text: '🍳 Examples' },
+    {
+      url: 'https://github.com/graphul-rs/graphul/tree/main/examples',
+      text: '🍳 Examples',
+    },
     { url: 'https://github.com/graphul-rs/graphul', text: '📝 GitHub' },
     { url: 'https://www.patreon.com/samuelbonilla', text: '☕ Buy a Coffee' },
   ];

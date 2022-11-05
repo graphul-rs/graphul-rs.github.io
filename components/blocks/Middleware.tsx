@@ -38,7 +38,10 @@ class MiddlewareBlock extends Component {
             <h3>Flexible Middleware Support</h3>
             <p>
               Choose from{' '}
-              <a href="https://docs.rs/tower-http/0.1.2/tower_http/index.html" target="_blank">
+              <a
+                href="https://docs.rs/tower-http/0.1.2/tower_http/index.html"
+                target="_blank"
+              >
                 a number of already existing middleware
               </a>{' '}
               or create your own! Use them to verify and manipulate certain

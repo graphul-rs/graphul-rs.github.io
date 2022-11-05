@@ -35,7 +35,10 @@ export default function App({ Component, pageProps }: AppProps) {
           content="https://github.com/graphul-rs/graphul/raw/main/img/logo.png"
         />
         <meta property="og:site_name" content="Graphul" />
-        <meta property="og:url" content="https://github.com/graphul-rs/graphul" />
+        <meta
+          property="og:url"
+          content="https://github.com/graphul-rs/graphul"
+        />
         <meta content="website" property="og:type" />
 
         <meta name="twitter:card" content="summary_large_image" />

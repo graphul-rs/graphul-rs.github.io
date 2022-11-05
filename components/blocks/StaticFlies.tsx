@@ -18,9 +18,10 @@ class StaticFiles extends Component {
           <div className="right">
             <h3>Serve Static Files</h3>
             <p>
-              Serve your spa (react, vue, svelte, angular etc), static HTML, CSS, and JavaScript files with ease by
-              defining static routes. You can also serve the contents of
-              multiple directories on the same route!
+              Serve your spa (react, vue, svelte, angular etc), static HTML,
+              CSS, and JavaScript files with ease by defining static routes. You
+              can also serve the contents of multiple directories on the same
+              route!
             </p>
           </div>
           <div className="left">

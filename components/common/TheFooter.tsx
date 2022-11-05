@@ -37,7 +37,9 @@ const Links = {
   ),
   GitBook: () => <FooterLink url="https://gitbook.com" text="GitBook.com" />,
   WebsiteBy: () => <FooterLink url="https://sallai.me" text="József Sallai" />,
-  EditedBy: () => <FooterLink url="https://github.com/SamuelBonilla" text="Samuel Bonilla" />,
+  EditedBy: () => (
+    <FooterLink url="https://github.com/SamuelBonilla" text="Samuel Bonilla" />
+  ),
 };
 
 class TheFooter extends Component {
@@ -45,11 +47,9 @@ class TheFooter extends Component {
     return (
       <footer className={styles.mainFooter}>
         <div className="mid">
-          Copyright (c) 2019-present <Links.Fenny />.
-          Graphul is free and open-source software licensed under the{' '}
-          <Links.ProjectLicense />.
-          Website by <Links.WebsiteBy />.
-          Edited by <Links.EditedBy />.
+          Copyright (c) 2019-present <Links.Fenny />. Graphul is free and
+          open-source software licensed under the <Links.ProjectLicense />.
+          Website by <Links.WebsiteBy />. Edited by <Links.EditedBy />.
         </div>
       </footer>
     );
