@@ -17,7 +17,7 @@ async fn main() {
         "Hello, World 👋!"
     });
 
-    app.run("127.0.0.1:8000").await;
+    app.run("127.0.0.1:3000").await;
 }`;
 
 class MainBlock extends Component {
@@ -45,7 +45,7 @@ class MainBlock extends Component {
           </div>
 
           <div className={styles.result}>
-            <BrowserWindow url="http://localhost:8000">
+            <BrowserWindow url="http://localhost:3000">
               <pre>Hello, World 👋!</pre>
             </BrowserWindow>
           </div>
