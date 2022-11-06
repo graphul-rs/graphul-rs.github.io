@@ -57,7 +57,7 @@ class MainBlock extends Component {
               <span>Get Started</span>
               <FontAwesomeIcon icon={faArrowRight} />
             </a>
-            <div className={styles.orScroll}>...or scroll to learn more.</div>
+            <div className={styles.orScroll}> ...or scroll to learn more. </div>
           </div>
         </section>
       </div>
