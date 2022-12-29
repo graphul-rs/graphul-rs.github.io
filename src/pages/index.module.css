@@ -49,6 +49,13 @@
   justify-content: center;
 }
 
+.install {
+  padding-left: 30px;
+  padding-right: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
 .finalSeparator{
   fill: var(--ifm-footer-background-color);
   transform: rotate(180deg);
@@ -58,4 +65,10 @@
 
 .footer{
   --ifm-footer-background-color: #303846;
+}
+
+@media screen and (max-width: 996px){
+  .heroBanner {
+      padding: 0rem;
+  }
 }

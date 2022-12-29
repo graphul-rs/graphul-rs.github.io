@@ -21,7 +21,7 @@ function Feature({ title, Svg, description, index, five }: Extract<FeatureItem, 
     return (
         <div className={clsx('col col--6')}>
             <div className={index == 0 ? "text--right" : "text--left"}>
-                <Svg role="img" />
+                <Svg style={{maxWidth: "100%"}} role="img" />
             </div>
             <div className={index == 0 ? "text--right padding-right--lg" : "text--left padding-left--lg" + ` padding-horiz--md`} >
                 <h3>{title}</h3>

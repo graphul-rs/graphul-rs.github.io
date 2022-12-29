@@ -6,6 +6,7 @@ import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Logo from '@site/static/img/TestLogo.svg';
 import FinalSeparator from '@site/static/img/final-separator.svg';
+import CodeBlock from '@theme/CodeBlock';
 
 import styles from './index.module.css';
 
@@ -15,9 +16,12 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className={styles.container}>
       <div className={'container'}>
-        <Logo />
+        <Logo style={{maxWidth: "100%"}} />
         <h1 className={clsx('hero__title', styles.hero__title)}>Graphul</h1>
         <p className={clsx('hero__subtitle', styles.hero__subtitle)}>Build web services and save money<br/>{siteConfig.tagline}</p>
+        <div className={clsx('row', styles.install)}>
+          <CodeBlock className='col col--3' >cargo add graphul</CodeBlock>
+        </div>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
