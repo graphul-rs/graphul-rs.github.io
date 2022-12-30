@@ -1,4 +1,3 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 import Compare from './assets/compare-light.png';
 import ComparationDark from './assets/compare-dark.png';
@@ -9,14 +8,23 @@ Graphul is an Express inspired web framework using a powerful extractor system. 
 
 Graphul is an extremely simple and powerful Rust web backend framework. Only basic Rust knowledge is required to develop backend services
 
+## Quickreview
+
+If you are thinking of building a web server Graphul is an amazing library to do it.
+
+Graphul provides you with the basic tools to build a web server, we are talking about routing, sharing state system, pre-processing of requests and post-processing of responses.
+
+We don't do it alone, we are re-using libraries as [Axum](https://github.com/tokio-rs/axum) and we are giving you a better abstraction and more friendly interface. 
+
+
 ## 🛫 Graphul vs most famous frameworks out there
 
-Graphul has a huge performance comparing with the most famous frameworks of the web.
+Graphul has a huge performance compared with the most famous frameworks of the web.
 
-This is a simple benchmark however [here the website](https://web-frameworks-benchmark.netlify.app/compare?f=graphul,nestjs-express,express,django,flask,laravel,rails)
+This is a simple benchmark, however [here the website](https://web-frameworks-benchmark.netlify.app/compare?f=graphul,nestjs-express,express,django,flask,laravel,rails)
 
 <ThemedImage
-  alt="Docusaurus themed image"
+  alt="Benchmark between Graphul and other frameworks"
   sources={{
     light: Compare,
     dark: ComparationDark,
@@ -25,5 +33,5 @@ This is a simple benchmark however [here the website](https://web-frameworks-ben
 
 ## About the documentation
 
-The documentation on this website focusses in gives you a starter guide, explaining a lot of concepts of the web and how implement it in Graphul.
-Besides we are interesting in show some of documentation about the Graphul APIs for the less familiarized with the [docs.rs](https://docs.rs/graphul/)
+The documentation on this website focuses in gives you a starter guide, explaining a lot of concepts of the web and how to implement them in Graphul.
+Besides we are interested in showing some of the documentation about the Graphul APIs for the less familiar with the [docs.rs](https://docs.rs/graphul/)

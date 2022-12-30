@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+sidebar_class_name: green
+---
 # Writing your first Graphul API
 
 ## Installing Rust
@@ -15,7 +19,7 @@ cargo new hello-world
 cd hello-world
 ```
 
-### Add Graphul as dependency
+### Add Graphul as a dependency
 
 Add `graphul` as a dependency of your project by adding the following to your Cargo.toml file.
 
@@ -54,7 +58,7 @@ graphul = { git = "https://github.com/graphul-rs/graphul" }
 
 ### Editing `main.rs`
 
-Copy and paste this few lines of code in the file main.rs, we are going to explain:
+Copy and paste these few lines of code into the file main.rs, we are going to explain:
 
 ```rust title="src/main.rs" showLineNumbers
 use graphul::{http::Methods, Graphul};
@@ -69,35 +73,35 @@ async fn main() {
 }
 ``` 
 
-In the line 3 we found a [macro](https://doc.rust-lang.org/book/ch19-06-macros.html#procedural-macros-for-generating-code-from-attributes)!
+In line 3 we found a [macro](https://doc.rust-lang.org/book/ch19-06-macros.html#procedural-macros-for-generating-code-from-attributes)!
 ```rust {1}
 #[tokio::main]
 ```
-In short `#[tokio::main]` initialize a async runtime.
+In short `#[tokio::main]` initialize an async runtime.
 
-This macro is from the library [Tokio](https://tokio.rs). We recommend read [this article](https://tokio.rs/tokio/tutorial/hello-tokio#async-main-function) about the macro for more information.
+This macro is from the library [Tokio](https://tokio.rs). We recommend reading [this article](https://tokio.rs/tokio/tutorial/hello-tokio#async-main-function) about the macro for more information.
 
-In the line 5 we instance Graphul and save it in the variable `app`.
+In line 5 we instance Graphul and save it in the variable `app`.
 ```rust {1}
     let mut app = Graphul::new();
 ```
-Then in the line 7 we access to a method of the variable `app` (The instance of Graphul). It is the method get.
+Then in line 7, we access a method of the variable `app` (The instance of Graphul). It is the method get.
 
-Graphul provide a method for every [HTTP request method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+Graphul provides a method for every [HTTP request method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
-In this function/method of the variable we need pass two parameters 
+In this function/method of the variable, we need to pass two parameters 
 ```rust {1}
     app.get("/", || async { "Hello, World 👋!" });
 ```
-The first, the access route and the second, an executable function for when a request is going to be received.
+The first is the access route and the second, is an executable function for when a request is going to be received.
 
-In this case we are using a [closure of Rust](https://doc.rust-lang.org/book/ch13-01-closures.html) that return "Hello, World 👋!"
+In this case, we are using a [closure of Rust](https://doc.rust-lang.org/book/ch13-01-closures.html) that return "Hello, World 👋!"
 
-Finally into the line 9 we run the server in the port 8000.
+Finally, into line 9 we run the server in port 8000.
 
 So if you understand this:
 
 Congratulations!
-Your first app has done! Compile and run the program with `cargo run`.
+Your first app has been done! Compile and run the program with `cargo run`.
 
 You can go to `http://127.0.0.1:8000/` or any of the other routes you defined to see the results.
