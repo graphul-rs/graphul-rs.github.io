@@ -43,7 +43,7 @@ use graphul::http::Methods;
 ```
 
 
-## Example
+### Example
 
 
 import Tabs from '@theme/Tabs';
@@ -124,3 +124,28 @@ async fn your_handler(_ctx: Context<AppState>) {
   </TabItem>
 </Tabs>
 
+## Getting Path Params
+
+The path params are accessible with a definition of the path, for example:
+
+```rust
+  app.get("/:name", |c: Context| async move {
+    let name = c.params("name");
+    name
+  });
+```
+
+We declare the parameter using the `:` to define a parameter and then you can access the parameter of type `Context` to get the query parameters inside of the handler.
+
+
+## Getting Query Params
+
+The Query Params are too similar to the Path Params.
+In this case, we just call the function `query` to access the Query Params.
+
+```rust
+  app.get("/", |c: Context| async move {
+    let name = c.query("name");
+    name
+  });
+```
