@@ -1,3 +1,6 @@
+---
+sidebar_position: 2
+---
 # Router
 import {HeaderBadgesWidget} from '@site/src/components/molecules/HeaderBadgesWidget';
 
@@ -9,7 +12,7 @@ Graphul for its router system uses the trait Method that implements a function f
 
 We can access these methods using an instance of `Graphul` or an instance of a `Group`.
 
-Besides every handler have access to the `Context`.
+Besides every handler have access to the [Context](context).
 
 ## List of HTTP Methods implemented
 
@@ -138,7 +141,7 @@ The path params are accessible with a definition of the path, for example:
   });
 ```
 
-We declare the parameter using the `:` to define a parameter and then you can access the parameter of type `Context` to get the query parameters inside of the handler.
+We declare the parameter using the `:` to define a parameter and then you can access the parameter of type [Context](context) to get the query parameters inside of the handler.
 
 
 ## Getting Query Params
