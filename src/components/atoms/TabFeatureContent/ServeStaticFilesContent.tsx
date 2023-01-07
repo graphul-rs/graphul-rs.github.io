@@ -13,12 +13,12 @@ const ServeStaticFilesContent = () => {
             <CodeBlock language="rust">
                 {`app.static_files("/", "public", FolderConfig::default())
   
-  // => http://localhost:3000/hello.html
-  // => http://localhost:3000/js/jquery.js
-  // => http://localhost:3000/css/style.css
-  
-  // single page application
-  app.static_files("/", "app/build", FolderConfig::spa())`}
+// => http://localhost:3000/hello.html
+// => http://localhost:3000/js/jquery.js
+// => http://localhost:3000/css/style.css
+
+// single page application
+app.static_files("/", "app/build", FolderConfig::spa())`}
             </CodeBlock>
         </div>
     </div >)

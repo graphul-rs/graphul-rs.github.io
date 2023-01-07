@@ -16,16 +16,16 @@ const RoutingContent = () => {
         <div className={clsx('col col--6')} >
             <CodeBlock language="rust" showLineNumbers>
                 {`app.get("/", || async {
-      "GET request"
-  })
+    "GET request"
+})
   
-  app.get("/:param", |c: Context| async move {
-      format!("param: {}", c.params("param"))
-  })
+app.get("/:param", |c: Context| async move {
+    format!("param: {}", c.params("param"))
+})
   
-  app.post("/", || async {
-      "POST request"
-  })`}
+app.post("/", || async {
+    "POST request"
+})`}
             </CodeBlock>
         </div>
     </div >)

@@ -17,11 +17,11 @@ export const HeaderBadgesWidget = ({ commaDelimitedContributors, lastVerifiedDat
 	}
 
 	let buildLastVerifiedBadge = function (dateString, versionString) {
-		if (dateString != null && versionString != null) {
+		if (dateString != null) {
 			return (
 				<a className="header-badge">
 					<span className="badge-avatar emoji-avatar">✔️</span>
-					<span className="badge-label">Last verified on <strong>{dateString}</strong> using Prysm {versionString}</span>
+					<span className="badge-label">Last verified on <strong>{dateString}</strong> {versionString && <>using Graphul {versionString}</>} </span>
 				</a>
 			)
 		}
@@ -33,7 +33,7 @@ export const HeaderBadgesWidget = ({ commaDelimitedContributors, lastVerifiedDat
 				<div className="header-badges">
 					{(commaDelimitedContributors != null ? commaDelimitedContributors.split(',').map(buildAuthorBadge) : null)}
 					{buildLastVerifiedBadge(lastVerifiedDateString, lastVerifiedVersionString)}
-					<a className="header-badge" href={`https://github.com/prysmaticlabs/documentation/issues/new?title=Docs update request: ${new URL(window.location.href).pathname}&body=Source: ${window.location.href}%0A%0ARequest: (how can we help?)`}>
+					<a className="header-badge" href={`https://github.com/graphul-rs/graphul-rs.github.io/issues/new?title=Docs update request: ${new URL(window.location.href).pathname}&body=Source: ${window.location.href}%0A%0ARequest: (how can we help?)`}>
 						<span className="badge-avatar emoji-avatar">✏️</span>
 						<span className="badge-label">Request an update</span>
 					</a>

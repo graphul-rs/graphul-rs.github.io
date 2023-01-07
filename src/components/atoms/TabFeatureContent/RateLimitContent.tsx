@@ -15,20 +15,20 @@ const RateLimitContent = () => {
         <div className={clsx('col col--6')} >
             <CodeBlock language="rust">
                 {`#[tokio::main]
-  async fn main() {
-    let mut app = Graphul::new();
-  
-    app.get("/", || async {
-        "hello world!"
-    });
-    // 1000 requests per 10 seconds max
-    app.middleware(RateLimitLayer::new(
-      1000,
-      std::time::Duration::from_secs(10)
-    ));
-  
-    app.run("127.0.0.1:8000").await;
-  }`}
+async fn main() {
+  let mut app = Graphul::new();
+
+  app.get("/", || async {
+      "hello world!"
+  });
+  // 1000 requests per 10 seconds max
+  app.middleware(RateLimitLayer::new(
+    1000,
+    std::time::Duration::from_secs(10)
+  ));
+
+  app.run("127.0.0.1:8000").await;
+}`}
             </CodeBlock>
         </div>
     </div >)

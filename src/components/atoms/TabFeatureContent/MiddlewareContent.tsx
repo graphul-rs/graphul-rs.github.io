@@ -22,30 +22,30 @@ const MiddlewareContent = () => {
             <CodeBlock language="rust">
                 {`use graphul::{Req, middleware::{self, Next}, http::{response::Response,Methods}, Graphul};
   
-  async fn my_middleware( request: Req, next: Next ) -> Response {
-    let authenticated = false;
-    if !authenticated {
-      return Redirect::to("/login");
-    }
-    next.run(request).await
+async fn my_middleware( request: Req, next: Next ) -> Response {
+  let authenticated = false;
+  if !authenticated {
+    return Redirect::to("/login");
   }
-  
-  #[tokio::main]
-  async fn main() {
-    let mut app = Graphul::new();
-  
-    app.get("/", || async {
-        "hello world!"
-    });
-    app.middleware(middleware::from_fn(my_middleware));
-  
-    // routes out of the scope of the middleware
-    app.get("/login", || async {
-        "Login page"
-    });
-  
-    app.run("127.0.0.1:8000").await;
-  }`}
+  next.run(request).await
+}
+
+#[tokio::main]
+async fn main() {
+  let mut app = Graphul::new();
+
+  app.get("/", || async {
+      "hello world!"
+  });
+  app.middleware(middleware::from_fn(my_middleware));
+
+  // routes out of the scope of the middleware
+  app.get("/login", || async {
+      "Login page"
+  });
+
+  app.run("127.0.0.1:8000").await;
+}`}
             </CodeBlock>
         </div>
     </div >)

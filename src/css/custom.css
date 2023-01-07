@@ -33,6 +33,9 @@
   margin-top: 20px !important;
   margin-bottom: 60px !important;
 }
+.markdown > .anchor:first-of-type{
+  margin-top: 20px
+}
 .header-badges {
   display: block;
   margin-top: -50px !important;
