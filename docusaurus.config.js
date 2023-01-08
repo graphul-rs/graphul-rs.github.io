@@ -90,9 +90,9 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} The Graphul Team. Built with Docusaurus.`,
       },
       prism: {
-        additionalLanguages: ['rust', 'toml'],
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        additionalLanguages: ['rust', 'toml', 'bash'],
+        theme: require('prism-react-renderer/themes/vsLight'),
+        darkTheme: require('prism-react-renderer/themes/vsDark'),
       },
     }),
 };
