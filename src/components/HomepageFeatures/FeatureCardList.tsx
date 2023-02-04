@@ -18,12 +18,12 @@ const FeatureCardList: FeatureItem[] = [
     {
       title: "Easy To Use",
       Svg: Robot,
-      description: (<>Simple, intuitive APIs make Rocket approachable, no matter your background.</>)
+      description: (<>Simple, intuitive APIs make Graphul approachable, no matter your background.</>)
     },
     {
       title: "Boilerplate Free",
       Svg: Sun,
-      description: (<>Spend your time writing code that really matters, and let Rocket generate the rest.</>)
+      description: (<>Spend your time writing code that really matters, and let Graphul generate the rest.</>)
     },
     {
       title: 'VERSATILE',
