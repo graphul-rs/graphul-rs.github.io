@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+        <meta name="title" content="Graphul" />
+        <meta name="description" content="An Express-inspired web framework written in Rust." />
+        <meta property="og:title" content="Graphul" />
+        <meta property="og:description" content="An Express-inspired web framework written in Rust." />
+        <meta property="og:image" content="https://github.com/graphul-rs/graphul/raw/main/img/logo.png" />
+        <meta property="og:site_name" content="Graphul" />
+        <meta property="og:url" content="https://github.com/graphul-rs/graphul" />
+        <meta content="website" property="og:type" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://github.com/graphul-rs/graphul/raw/main/img/logo.png" />
+        <link rel="icon" type="image/png" href="./assets/images/logo.png" />
+        <title>Graphul</title>
+        <meta name="next-head-count" content="14" />
+        <link rel="preload" href="./next/static/css/84834eb856ed02da.css" as="style" />
+        <link rel="stylesheet" href="./next/static/css/84834eb856ed02da.css" data-n-g="" />
+        <link rel="preload" href="./next/static/css/ab32773d5ea0a650.css" as="style" />
+        <link rel="stylesheet" href="./next/static/css/ab32773d5ea0a650.css" data-n-p="" />
+        <noscript data-n-css=""></noscript>
+        <script defer="" nomodule="" src="./next/static/chunks/polyfills-5cd94c89d3acac5f.js"></script>
+        <script src="./next/static/chunks/webpack-49b6f2937c9ce9f4.js" defer=""></script>
+        <script src="./next/static/chunks/framework-6e4ba497ae0c8a3f.js" defer=""></script>
+        <script src="./next/static/chunks/main-6dbd9d9da1881058.js" defer=""></script>
+        <script src="./next/static/chunks/pages/app-2302c8ea299db156.js" defer=""></script>
+        <script src="./next/static/chunks/637-9f4106319d5cb83a.js" defer=""></script>
+        <script src="./next/static/chunks/pages/index-6405913d833dc5e3.js" defer=""></script>
+        <script src="./next/static/mgYfCIeV1Jgq2k8y2a8sT/buildManifest.js" defer=""></script>
+        <script src="./next/static/mgYfCIeV1Jgq2k8y2a8sT/ssgManifest.js" defer=""></script>
+        <script src="./next/static/mgYfCIeV1Jgq2k8y2a8sT/middlewareManifest.js" defer=""></script>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-248603223-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-248603223-1');
+        </script>
+    </head>
+    <body>
+        <div id="__next" data-reactroot="">
+            <main>
+                <header class="TheHeader_header__plrZQ">
+                    <div class="mid TheHeader_headerMid__PX8oI">
+                        <div class="TheHeader_headerLeft__nWeeD">
+                            <a href="./"><img src="./assets/images/logo.png" alt="Graphul" class="TheHeader_logo__FekVp" /></a>
+                        </div>
+                        <div>
+                            <nav>
+                                <a href="https://crates.io/crates/graphul">📖 Docs</a><a href="https://github.com/graphul-rs/graphul/tree/main/examples">🍳 Examples</a><a href="https://github.com/graphul-rs/graphul">📝 GitHub</a>
+                                <a href="https://www.patreon.com/samuelbonilla">☕ Buy a Coffee</a>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="TheHeader_hamburgerOpener__oYG6z">
+                        <a href="#">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" class="svg-inline--fa fa-bars fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path
+                                    fill="currentColor"
+                                    d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
+                                ></path>
+                            </svg>
+                        </a>
+                    </div>
+                </header>
+                <section class="wrapper">
+                    <div class="app">
+                        <div>
+                            <section class="mid MainBlock_mainBlock___HUXi">
+                                <h2 class="MainBlock_largeText__0RBPw">Build web services and save money 💵</h2>
+                                <div class="MainBlock_description__nW6pS">
+                                    Graphul is built with Rust. that means Graphul gets memory safety, reliability, concurrency, and performance for free. helping to save money and energy 🔌 on infrastructure.
+                                </div>
+                            </section>
+                            <section class="mid MainBlock_mainExample__vcDpO">
+                                <div class="MainBlock_codeExampleWrapper__z_h4B">
+                                    <div class="code-block">
+                                        <div class="window dark">
+                                            <div class="titlebar">
+                                                <div class="titlebar-buttons">
+                                                    <div class="titlebar-button close"></div>
+                                                    <div class="titlebar-button maximize"></div>
+                                                    <div class="titlebar-button minimize"></div>
+                                                </div>
+                                            </div>
+                                            <div class="window-content CodeBlock_codeWindowContent__5NaQZ">
+                                                <pre><code class="rust">use graphul::{Graphul, http::Methods};
+
+#[tokio::main]
+async fn main() {
+    let mut app = Graphul::new();
+
+    app.get(&quot;/&quot;, || async {
+        &quot;Hello, World 👋!&quot;
+    });
+
+    app.run(&quot;127.0.0.1:3000&quot;).await;
+}</code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="MainBlock_arrowContainer__j_BnH">
+                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                        <path
+                                            fill="currentColor"
+                                            d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                                        ></path>
+                                    </svg>
+                                </div>
+                                <div class="MainBlock_result__pYmB8">
+                                    <div class="browser">
+                                        <div class="window">
+                                            <div class="titlebar BrowserWindow_titlebar__JSDF9">
+                                                <div class="titlebar-buttons">
+                                                    <div class="titlebar-button close"></div>
+                                                    <div class="titlebar-button maximize"></div>
+                                                    <div class="titlebar-button minimize"></div>
+                                                </div>
+                                                <div class="BrowserWindow_urlBar__Yo_W5">http://localhost:3000</div>
+                                            </div>
+                                            <div class="BrowserWindow_browserWindowContent__e5zKB">
+                                                <div class="BrowserWindow_genericBrowserContent__lanbB"><pre>Hello, World 👋!</pre></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="emphasized-button">
+                                <div class="mid">
+                                    <a href="https://crates.io/crates/graphul">
+                                        <span>Get Started</span>
+                                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                            <path
+                                                fill="currentColor"
+                                                d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                                            ></path>
+                                        </svg>
+                                    </a>
+                                    <div class="MainBlock_orScroll__AwIJl">...or scroll to learn more.</div>
+                                </div>
+                            </section>
+                        </div>
+                        <section class="generic-block">
+                            <div class="mid">
+                                <div class="left">
+                                    <h3>Robust Routing</h3>
+                                    <p>Setting up routes for your application has never been so easy! The Express-like route definitions are easy to understand and work with.</p>
+                                </div>
+                                <div class="right">
+                                    <div class="code-block">
+                                        <div class="window dark">
+                                            <div class="titlebar">
+                                                <div class="titlebar-buttons">
+                                                    <div class="titlebar-button close"></div>
+                                                    <div class="titlebar-button maximize"></div>
+                                                    <div class="titlebar-button minimize"></div>
+                                                </div>
+                                            </div>
+                                            <div class="window-content CodeBlock_codeWindowContent__5NaQZ">
+                                                <pre><code class="rust">app.get(&quot;/&quot;, || async {
+    &quot;GET request&quot;
+})
+
+app.get(&quot;/:param&quot;, |c: Context| async move {
+    format!(&quot;param: {}&quot;, c.params(&quot;param&quot;))
+})
+
+app.post(&quot;/&quot;, || async {
+    &quot;POST request&quot;
+})</code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="generic-block reverse faint">
+                            <div class="mid">
+                                <div class="right">
+                                    <h3>Serve Static Files</h3>
+                                    <p>
+                                        Serve your spa (react, vue, svelte, angular etc), static HTML, CSS, and JavaScript files with ease by defining static routes. You can also serve the contents of multiple directories on the same route!
+                                    </p>
+                                </div>
+                                <div class="left">
+                                    <div class="code-block">
+                                        <div class="window dark">
+                                            <div class="titlebar">
+                                                <div class="titlebar-buttons">
+                                                    <div class="titlebar-button close"></div>
+                                                    <div class="titlebar-button maximize"></div>
+                                                    <div class="titlebar-button minimize"></div>
+                                                </div>
+                                            </div>
+                                            <div class="window-content CodeBlock_codeWindowContent__5NaQZ">
+                                                <pre><code class="rust">app.static_files(&quot;/&quot;, &quot;public&quot;, FolderConfig::default())
+
+// =&gt; http://localhost:3000/hello.html
+// =&gt; http://localhost:3000/js/jquery.js
+// =&gt; http://localhost:3000/css/style.css
+
+// single page application
+app.static_files(&quot;/&quot;, &quot;app/build&quot;, FolderConfig::spa())</code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="generic-block faint">
+                            <div class="mid">
+                                <div class="left">
+                                    <h3>API-ready</h3>
+                                    <p>Are you building an API server? We&#x27;ve got you covered! Graphul is the perfect choice for building REST APIs in Rust. Receiving and sending data is fast and easy!</p>
+                                </div>
+                                <div class="right">
+                                    <div class="code-block">
+                                        <div class="window dark">
+                                            <div class="titlebar">
+                                                <div class="titlebar-buttons">
+                                                    <div class="titlebar-button close"></div>
+                                                    <div class="titlebar-button maximize"></div>
+                                                    <div class="titlebar-button minimize"></div>
+                                                </div>
+                                            </div>
+                                            <div class="window-content CodeBlock_codeWindowContent__5NaQZ">
+                                                <pre><code class="rust">app.get(&quot;/api/posts&quot;, |c: Context| async move {
+    let posts = getPosts(); // your logic
+    if posts.len() == 0 {
+        return (StatusCode::NOT_FOUND, c.json(json!{
+          &quot;success&quot;: false,
+          &quot;error&quot;:   &quot;There are no posts!&quot;
+        })).into_response();
+    }
+    c.json(json!{
+        &quot;success&quot;: true,
+        &quot;posts&quot;:   posts,
+    }).into_response()
+})</code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="generic-block reverse">
+                            <div class="mid">
+                                <div class="right">
+                                    <h3>Flexible Middleware Support</h3>
+                                    <p>
+                                        Choose from<!-- -->
+                                        <a href="https://docs.rs/tower-http/0.1.2/tower_http/index.html" target="_blank">a number of already existing middleware</a>
+                                        <!-- -->or create your own! Use them to verify and manipulate certain requests in your app before they reach your controller.
+                                    </p>
+                                </div>
+                                <div class="left">
+                                    <div class="code-block">
+                                        <div class="window dark">
+                                            <div class="titlebar">
+                                                <div class="titlebar-buttons">
+                                                    <div class="titlebar-button close"></div>
+                                                    <div class="titlebar-button maximize"></div>
+                                                    <div class="titlebar-button minimize"></div>
+                                                </div>
+                                            </div>
+                                            <div class="window-content CodeBlock_codeWindowContent__5NaQZ">
+                                                <pre><code class="rust">use graphul::{Req, middleware::{self, Next}, http::{response::Response,Methods}, Graphul};
+
+
+async fn my_middleware( request: Req, next: Next ) -&gt; Response {
+  let authenticated = false;
+    if !authenticated {
+        return Redirect::to(&quot;/login&quot;);
+    }
+  next.run(request).await
+}
+
+#[tokio::main]
+async fn main() {
+  let mut app = Graphul::new();
+
+  app.get(&quot;/&quot;, || async {
+      &quot;hello world!&quot;
+  });
+  app.middleware(middleware::from_fn(my_middleware));
+
+  // routes out of the scope of the middleware
+  app.get(&quot;/login&quot;, || async {
+      &quot;Login page&quot;
+  });
+
+  app.run(&quot;127.0.0.1:8000&quot;).await;
+}</code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="generic-block faint LowMemoryFootprint_lmfBlock__AEzgH">
+                            <div class="mid LowMemoryFootprint_mid__ENZmr">
+                                <div class="left LowMemoryFootprint_left__cuHf8">
+                                    <h3>Low Memory Footprint</h3>
+                                    <p>
+                                        Graphul&#x27;s low memory footprint without a GC allows you to implement features without worrying about how much memory your application will use. This allows you to focus on your application and its
+                                        business logic, rather than technical particularities.
+                                    </p>
+                                </div>
+                                <div class="right LowMemoryFootprint_right__lIuwj">
+                                    <h3>Rapid Programming</h3>
+                                    <p>
+                                        Take your idea and turn it into reality in no time! Thanks to the well-designed and easy-to-learn API, you can develop your application in record speed (especially if you&#x27;re coming from an
+                                        Express.js background).
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="generic-block">
+                            <div class="mid">
+                                <div class="left">
+                                    <h3>Template Engines</h3>
+                                    <p>Graphul supports multiple template engines.</p>
+                                    <a href="https://github.com/graphul-rs/graphul/tree/main/examples/templates" target="_blank">Example</a>
+                                </div>
+                                <div class="right">
+                                    <div class="code-block">
+                                        <div class="window dark">
+                                            <div class="titlebar">
+                                                <div class="titlebar-buttons">
+                                                    <div class="titlebar-button close"></div>
+                                                    <div class="titlebar-button maximize"></div>
+                                                    <div class="titlebar-button minimize"></div>
+                                                </div>
+                                            </div>
+                                            <div class="window-content CodeBlock_codeWindowContent__5NaQZ">
+                                                <pre><code class="rust">use graphul::{ http::Methods, Context, Graphul, template::HtmlTemplate};
+use askama::Template;
+
+#[derive(Template)]
+#[template(path = &quot;hello.html&quot;)]
+struct HelloTemplate {
+  name: String,
+}
+
+#[tokio::main]
+async fn main() {
+  let mut app = Graphul::new();
+
+  app.get(&quot;/:name&quot;, |c: Context| async  move {
+      let template = HelloTemplate { name: c.params(&quot;name&quot;) };
+      HtmlTemplate(template)
+  });
+
+  app.run(&quot;127.0.0.1:8000&quot;).await;
+}</code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="generic-block faint reverse">
+                            <div class="mid">
+                                <div class="right">
+                                    <h3>WebSocket Support</h3>
+                                    <p>Use the power of <strong>WebSockets</strong> in your Graphul app! Build fast interactive user experiences with performance and scalability guaranteed.</p>
+                                </div>
+                                <div class="left">
+                                    <div class="code-block">
+                                        <div class="window dark">
+                                            <div class="titlebar">
+                                                <div class="titlebar-buttons">
+                                                    <div class="titlebar-button close"></div>
+                                                    <div class="titlebar-button maximize"></div>
+                                                    <div class="titlebar-button minimize"></div>
+                                                </div>
+                                            </div>
+                                            <div class="window-content CodeBlock_codeWindowContent__5NaQZ">
+                                                <pre><code class="rust">async fn handle_socket(mut socket: WebSocket) {
+  if let Some(msg) = socket.recv().await {
+    if let Ok(msg) = msg {
+      match msg {
+        Message::Text(t) =&gt; {
+          println!(&quot;client sent str: {:?}&quot;, t);
+        }
+        Message::Binary(_) =&gt; {
+          println!(&quot;client sent binary data&quot;);
+        }
+        Message::Ping(_) =&gt; {
+          println!(&quot;socket ping&quot;);
+        }
+        Message::Pong(_) =&gt; {
+          println!(&quot;socket pong&quot;);
+        }
+        Message::Close(_) =&gt; {
+          println!(&quot;client disconnected&quot;);
+          return;
+        }
+      }
+    } else {
+        println!(&quot;client disconnected&quot;);
+        return;
+    }
+  }
+
+  loop {
+    if socket
+      .send(Message::Text(String::from(&quot;Hi!&quot;)))
+      .await
+      .is_err()
+    {
+      println!(&quot;client disconnected&quot;);
+      return;
+    }
+    tokio::time::sleep(std::time::Duration::from_secs(3)).await;
+  }
+}</code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <div class="generic-block">
+                            <div class="mid">
+                                <div class="left">
+                                    <h3>Rate Limiter</h3>
+                                    <p>With Graphul, limiting repeated requests to public APIs and endpoints is very simple. No more abusive requests!</p>
+                                </div>
+                                <div class="right">
+                                    <div class="code-block">
+                                        <div class="window dark">
+                                            <div class="titlebar">
+                                                <div class="titlebar-buttons">
+                                                    <div class="titlebar-button close"></div>
+                                                    <div class="titlebar-button maximize"></div>
+                                                    <div class="titlebar-button minimize"></div>
+                                                </div>
+                                            </div>
+                                            <div class="window-content CodeBlock_codeWindowContent__5NaQZ">
+                                                <pre><code class="rust">
+#[tokio::main]
+async fn main() {
+  let mut app = Graphul::new();
+
+  app.get(&quot;/&quot;, || async {
+      &quot;hello world!&quot;
+  });
+  // 1000 requests per 10 seconds max
+  app.middleware(RateLimitLayer::new(
+    1000,
+    std::time::Duration::from_secs(10)
+  ));
+
+  app.run(&quot;127.0.0.1:8000&quot;).await;
+}
+}</code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <section class="generic-block blue LastBlock_lastBlock__vomvi">
+                            <div class="mid LastBlock_mid__S4qRX">
+                                <div style="text-align: center;">
+                                    <h3>...and much more!</h3>
+                                    <div class="LastBlock_exploreButton__3QYe4">
+                                        <a href="https://github.com/graphul-rs/graphul">
+                                            <span>Explore Graphul</span>
+                                            <svg
+                                                aria-hidden="true"
+                                                focusable="false"
+                                                data-prefix="fas"
+                                                data-icon="arrow-right"
+                                                class="svg-inline--fa fa-arrow-right fa-w-14"
+                                                role="img"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 448 512"
+                                            >
+                                                <path
+                                                    fill="currentColor"
+                                                    d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                                                ></path>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+                <footer class="TheFooter_mainFooter__CLW_h">
+                    <div class="mid">
+                        Copyright (c) 2019-present <a href="https://github.com/fenny" target="_blank">Fenny</a>. Graphul is free and open-source software licensed under the
+                        <a href="https://github.com/graphul-rs/graphul/blob/main/LICENSE" target="_blank">MIT License</a>. Website by <a href="https://sallai.me" target="_blank">József Sallai</a>. Edited by
+                        <a href="https://github.com/SamuelBonilla" target="_blank">Samuel Bonilla</a>.
+                    </div>
+                </footer>
+            </main>
+        </div>
+        <script id="__NEXT_DATA__" type="application/json">
+            { "props": { "pageProps": {} }, "page": "/", "query": {}, "buildId": "mgYfCIeV1Jgq2k8y2a8sT", "nextExport": true, "autoExport": true, "isFallback": false, "scriptLoader": [] }
+        </script>
+    </body>
+</html>

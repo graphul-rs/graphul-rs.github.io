@@ -1,41 +1,46 @@
-# Website
+# Graphul Website
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+The official website of the Graphul Web Framework — https://graphul-rs.github.io
 
-### Installation
+## Project Description
 
-```
-$ yarn
-```
+This project is a [Next.js](https://nextjs.org) app. In order to work on it locally,
+you need to have Node.js installed on your computer.
 
-### Local Development
+## Getting Started
 
-```
-$ yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
+**1. Clone the repository:**
 
 ```
-$ yarn build
+git clone git@github.com:graphul-rs/website.git Graphul-website
+cd Graphul-website
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
+**2. Install the dependencies:**
 
 ```
-$ USE_SSH=true yarn deploy
+npm i -g yarn
+yarn
 ```
 
-Not using SSH:
+**3. Start the app in dev mode:**
 
 ```
-$ GIT_USER=<Your GitHub username> yarn deploy
+yarn dev
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+## Deployment
+
+Use the build command to create a deployable bundle:
+
+```
+yarn build
+```
+
+You can then deploy the files inside of `out` to a web hosting service. The
+official website deploys to Github Pages.
+
+## License
+
+Landing page by [József Sallai](https://github.com/jozsefsallai). Licensed under
+MIT.
