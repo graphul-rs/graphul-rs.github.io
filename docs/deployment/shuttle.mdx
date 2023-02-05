@@ -1,0 +1,98 @@
+# Shuttle 
+import {HeaderBadgesWidget} from '@site/src/components/molecules/HeaderBadgesWidget';
+
+<HeaderBadgesWidget commaDelimitedContributors="Phosphorus" lastVerifiedDateString="January 8th, 2023" />
+
+## What's Shuttle?
+
+Shuttle is a Rust-native cloud development platform that lets you deploy your Rust apps for free.
+
+Using Graphul we can have an easy deployment with Shuttle.
+
+As Graphul is based on the top of Axum we share the possibility to reutilize the same method of deployment that Axum.
+
+Here is the original guide to [deploy a service using Axum](https://docs.shuttle.rs/examples/axum)
+
+## Zero to production
+
+Shuttle provides a [CLI](https://en.wikipedia.org/wiki/Command-line_interface) to ease the deployment.
+
+So to start we need to install the CLI. 
+
+```bash
+cargo install cargo-shuttle
+```
+
+And then login:
+
+```bash
+cargo shuttle login
+```
+Make a directory and enter in it:
+
+```bash
+mkdir your_project && cd your_project
+```
+
+You can start a new project using:
+
+```bash
+cargo shuttle init
+```
+
+You need to answer some questions about your project, when the CLI will ask you for a web framework to use choose `none`, we are going to configure it from zero.
+
+However, in the project folder, we need to activate the `web-axum` feature and install `sync_wrapper` as dependencies with the next command:
+
+```bash
+cargo add sync_wrapper shuttle-service --features shuttle-service/web-axum
+```
+
+And as expected we need to install Graphul, but just Graphul in this case:
+
+```bash
+cargo add graphul
+```
+
+Make sure that your `Cargo.toml` file looks like the one below -- having the right dependencies is key!
+
+```toml
+[package]
+name = "graphul-testing"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+
+[dependencies]
+graphul = "0.4.5"
+shuttle-service = { version = "0.8.0", features = ["web-axum"] }
+sync_wrapper = "0.1.1"
+```
+
+And the you need to replace your `lib.rs` for this:
+
+```rust
+use graphul::{http::Methods, Graphul};
+use sync_wrapper::SyncWrapper;
+
+#[shuttle_service::main]
+async fn graphul() -> shuttle_service::ShuttleAxum {
+    let mut app = Graphul::new();
+
+    app.get("/", || async { "Hello World 👋!" });
+    let sync_wrapper = SyncWrapper::new(app.export_routes());
+
+    Ok(sync_wrapper)
+}
+```
+
+So now finally we need to deploy it using the following command:
+
+```bash 
+cargo shuttle deploy
+```
+
+And your app is live! Congrats! 🎉🎉🎉
+

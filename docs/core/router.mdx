@@ -1,0 +1,157 @@
+---
+sidebar_position: 2
+---
+# Router
+import {HeaderBadgesWidget} from '@site/src/components/molecules/HeaderBadgesWidget';
+
+<HeaderBadgesWidget commaDelimitedContributors="Phosphorus" lastVerifiedDateString="January 7th, 2023" />
+
+## How works the routing system in Graphul?
+
+Graphul for its router system uses the trait Method that implements a function for every HTTP Method.
+
+We can access these methods using an instance of `Graphul` or an instance of a `Group`.
+
+Besides every handler have access to the [Context](context).
+
+## List of HTTP Methods implemented
+
+As we said, Graphul tries to give an implementation of every HTTP Method, here is the list:
+
+- `get`
+- `post`
+- `put`
+- `patch`
+- `delete`
+- `options`
+- `trace`
+- `head`
+
+All of these are available.
+If you try to access these methods directly from a `Graphul` instance or a `Group` instance maybe you don't see the autocompletion or maybe if you try to run it you could get an error like this:
+
+import ThemedImage from '@theme/ThemedImage';
+import ErrorLight from './assets/light.png';
+import ErrorDark from './assets/dark.png';
+
+<ThemedImage
+  alt="Output trying to run it"
+  sources={{
+    light: ErrorLight,
+    dark: ErrorDark,
+  }}
+/>
+
+This error as said in the image is because you need to import the trait `Methods`.
+So you can add this line to your file and try again:
+```rust
+use graphul::http::Methods;
+```
+
+
+### Example
+
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="without-context" label="Without Context" default>
+
+```rust
+use graphul::{http::Methods, Graphul};
+
+#[tokio::main]
+async fn main() {
+    let mut app = Graphul::new();
+    app.get("/", || async { "hello world!" });
+    app.get("/hello", your_handler);
+    app.post("/hello", your_handler);
+    app.put("/hello", your_handler);
+    app.patch("/hello", your_handler);
+    app.delete("/hello", your_handler);
+    app.run("127.0.0.1:8000").await;
+}
+
+async fn your_handler() {
+    // ... your code
+}
+```
+
+  </TabItem>
+    <TabItem value="without-state" label="Without State" default>
+
+```rust
+use graphul::{http::Methods, Graphul, Context};
+
+#[tokio::main]
+async fn main() {
+    let mut app = Graphul::new();
+    app.get("/", || async { "hello world!" });
+    app.get("/hello", your_handler);
+    app.post("/hello", your_handler);
+    app.put("/hello", your_handler);
+    app.patch("/hello", your_handler);
+    app.delete("/hello", your_handler);
+    app.run("127.0.0.1:8000").await;
+}
+
+async fn your_handler(_ctx: Context) {
+    // ... your code
+}
+```
+
+  </TabItem>
+  <TabItem value="with-state" label="Using State">
+
+```rust
+use graphul::{http::Methods, Graphul, Context};
+
+#[tokio::main]
+async fn main() {
+    let mut app = Graphul::share_state(AppState { });
+    app.get("/", || async { "hello world!" });
+    app.get("/hello", your_handler);
+    app.post("/hello", your_handler);
+    app.put("/hello", your_handler);
+    app.patch("/hello", your_handler);
+    app.delete("/hello", your_handler);
+    app.run("127.0.0.1:8000").await;
+}
+
+#[derive(Clone)]
+struct AppState {}
+
+async fn your_handler(_ctx: Context<AppState>) {
+    // ... your code
+}
+```
+
+  </TabItem>
+</Tabs>
+
+## Getting Path Params
+
+The path params are accessible with a definition of the path, for example:
+
+```rust
+  app.get("/:name", |c: Context| async move {
+    let name = c.params("name");
+    name
+  });
+```
+
+We declare the parameter using the `:` to define a parameter and then you can access the parameter of type [Context](context) to get the query parameters inside of the handler.
+
+
+## Getting Query Params
+
+The Query Params are too similar to the Path Params.
+In this case, we just call the function `query` to access the Query Params.
+
+```rust
+  app.get("/", |c: Context| async move {
+    let name = c.query("name");
+    name
+  });
+```
