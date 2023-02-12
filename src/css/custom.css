@@ -114,3 +114,15 @@ html[data-theme='dark'] .header-badge:hover .badge-label {
 html[data-theme='dark'] .header-badge .badge-label {
   color: #ddd;
 }
+
+.card-in-docs{
+  max-width: 320px;
+}
+
+.center{
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}

@@ -1,0 +1,94 @@
+import ThemedImage from '@theme/ThemedImage';
+
+# CORS
+import {HeaderBadgesWidget} from '@site/src/components/molecules/HeaderBadgesWidget';
+
+<HeaderBadgesWidget commaDelimitedContributors="Phosphorus" lastVerifiedDateString="February 11th, 2023" />
+
+CORS stands for Cross-Origin Resource Sharing, and it is a mechanism used by web browsers to determine if a request to a resource on a different domain should be allowed or not.
+A web application executes a cross-origin HTTP request when it requests a resource that has a different origin (domain, protocol, or port) from its own.
+
+## Enabling it in Graphul
+
+Graphul has a built-in CORS middleware that can be enabled.
+
+We use for this case the `CorsLayer` of [Tower](https://tokio.rs/#tk-lib-tower) and then we can add it as a middleware in our instance of Graphul.
+
+Besides we can define:
+
+- [allow_credentials](https://docs.rs/tower-http/latest/tower_http/cors/struct.CorsLayer.html#method.allow_credentials)
+- [allow_headers](https://docs.rs/tower-http/latest/tower_http/cors/struct.CorsLayer.html#method.allow_headers)
+- [max_age](https://docs.rs/tower-http/latest/tower_http/cors/struct.CorsLayer.html#method.max_age)
+- [allow_methods](https://docs.rs/tower-http/latest/tower_http/cors/struct.CorsLayer.html#method.allow_methods)
+- [allow_origin](https://docs.rs/tower-http/latest/tower_http/cors/struct.CorsLayer.html#method.allow_origin)
+- [expose_headers](https://docs.rs/tower-http/latest/tower_http/cors/struct.CorsLayer.html#method.expose_headers)
+- [vary](https://docs.rs/tower-http/latest/tower_http/cors/struct.CorsLayer.html#method.vary)
+
+It's not too recommended use the following methods but maybe to get a better development experience is easier to configure using it:
+
+- [permissive](https://docs.rs/tower-http/latest/tower_http/cors/struct.CorsLayer.html#method.permissive)
+- [very_permissive](https://docs.rs/tower-http/latest/tower_http/cors/struct.CorsLayer.html#method.very_permissive)
+
+### Example
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="enabling-cors" label="Enabling CORS for anything" default>
+
+Here is a [CodeSanbox Example](https://codesandbox.io/p/sandbox/graphul-cors-08k92v)
+
+```rust {1,9}
+use graphul::middleware::tower::cors;
+use graphul::{http::Methods, Graphul};
+
+#[tokio::main]
+async fn main() {
+    let mut app = Graphul::new();
+    app.get("/", || async { "Hello World 👋!" });
+
+    app.middleware(cors::CorsLayer::permissive());
+
+    // ...
+
+    app.run("127.0.0.1:8000").await;
+}
+
+```
+
+</TabItem>
+  <TabItem value="custom-cors" label="Custom CORS" >
+
+Here is a [CodeSanbox Example](https://codesandbox.io/p/sandbox/graphul-cors-custom-mwe1ox)
+
+```rust {1,12-18}
+use graphul::middleware::tower::cors;
+use graphul::{
+    http::{utils::Method, Methods},
+    Graphul,
+};
+
+#[tokio::main]
+async fn main() {
+    let mut app = Graphul::new();
+    app.get("/", || async { "Hello World 👋!" });
+
+    app.middleware(
+        cors::CorsLayer::new()
+            // allow `GET` and `POST` when accessing the resource
+            .allow_methods([Method::GET, Method::POST])
+            // allow requests from any origin
+            .allow_origin(cors::Any),
+    );
+
+    // ...
+
+    app.run("127.0.0.1:8000").await;
+}
+```
+
+</TabItem>
+
+
+</Tabs>
