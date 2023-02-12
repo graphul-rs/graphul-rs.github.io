@@ -1,0 +1,129 @@
+---
+sidebar_position: 3
+---
+# Serving Static Files 
+import {HeaderBadgesWidget} from '@site/src/components/molecules/HeaderBadgesWidget';
+
+<HeaderBadgesWidget commaDelimitedContributors="Phosphorus" lastVerifiedDateString="January 7th, 2023" />
+
+## Exposing static files
+
+Graphul provides an easy way to create endpoints using folders with static files or exposing just one file. 
+
+This could be a great utility in case you want to load a SPA or HTML in a route.
+
+Graphul separates the concept of serving static files into two different functions, one for the Directories and the other for an individual file.
+
+Besides we need to define the kind of `FileConfig` or `FolderConfig` for every case.
+
+## Directories
+
+To serve local files from specific directories and sub-directories, the function `static_files` provides support for it. 
+As we said above you need to define the `FolderConfig`.
+Graphul provides two default configurations, the default option that just exposes the files into the folder and the spa option that exposes the route as a SPA.
+
+### Example
+
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="using-prefix-configs" label="Using prefix configs" default>
+
+```rust 
+use graphul::{Graphul, FolderConfig};
+
+#[tokio::main]
+async fn main() {
+    let mut app = Graphul::new();
+
+    // path = "/static", dir = public
+    app.static_files("/static", "public", FolderConfig::default());
+
+    // single page application
+    app.static_files("/", "app/build", FolderConfig::spa());
+
+    app.run("127.0.0.1:8000").await;
+}
+```
+
+  </TabItem>
+  <TabItem value="using-custom-configs" label="Using custom configs" default>
+
+```rust 
+use graphul::{Graphul, FolderConfig};
+
+#[tokio::main]
+async fn main() {
+    let mut app = Graphul::new();
+
+    app.static_files("/", "templates", FolderConfig {
+        // single page application
+        spa: false,
+        // it supports gzip, brotli and deflate
+        compress: true,
+        // Set a specific read buffer chunk size.
+        // The default capacity is 64kb.
+        chunk_size: None,
+        // If the requested path is a directory append `index.html`.
+        // This is useful for static sites.
+        index: true,
+        // fallback - This file will be called if there is no file at the path of the request.
+        not_found: Some("templates/404.html"), // or None
+    });
+
+    app.run("127.0.0.1:8000").await;
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Individual file
+
+To serve a single file, the function `static_file` provides support for it.
+As we said above you need to define the `FileConfig`.
+Currently, we don't have many kinds of FileConfig, at the moment we support just one default configuration or the custom config.
+
+### Example
+
+<Tabs>
+  <TabItem value="using-prefix-configs" label="Using prefix configs" default>
+
+```rust 
+use graphul::{Graphul, FileConfig};
+
+#[tokio::main]
+async fn main() {
+    let mut app = Graphul::new();
+
+    app.static_file("/about", "templates/about.html", FileConfig::default());
+
+    app.run("127.0.0.1:8000").await;
+}
+```
+
+  </TabItem>
+  <TabItem value="using-custom-configs" label="Using custom configs" default>
+
+```rust 
+use graphul::{Graphul, FileConfig};
+
+#[tokio::main]
+async fn main() {
+    let mut app = Graphul::new();
+
+    app.static_file("/path", "templates/about.html", FileConfig {
+        // it supports gzip, brotli and deflate
+        compress: true,
+        chunk_size: Some(65536) // buffer capacity 64KiB
+    });
+
+    app.run("127.0.0.1:8000").await;
+}
+```
+
+  </TabItem>
+</Tabs>
