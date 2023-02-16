@@ -4,9 +4,9 @@ import {HeaderBadgesWidget} from '@site/src/components/molecules/HeaderBadgesWid
 
 <HeaderBadgesWidget commaDelimitedContributors="JeysonFlores" lastVerifiedDateString="February 15th, 2023" />
 
-[Digital Ocean's App Platform](https://docs.digitalocean.com/products/app-platform/) is a Platform-as-a-Service (PaaS) offering that allows developers to publish code directly to DigitalOcean servers without worrying about the underlying infrastructure.
+App Platform is a Platform-as-a-Service (PaaS) offering that allows developers to publish code directly to DigitalOcean servers without worrying about the underlying infrastructure.
 
-App Platform does not support Rust in their set of available runtimes, however it can run any application packaged inside a Docker image.
+Currently App Platform does not support Rust in their set of available runtimes, however it can run any application packaged inside a Docker container.
 
 ## Deploying your project
 ### Your source code
@@ -66,11 +66,16 @@ COPY --from=build /myproject/target/release/myproject .
 # set the startup command to run your binary
 CMD ["./myproject"]
 ```
-> Remember that `myproject` is the name of the project. You may change it to match your own.
+
+Once you have the `Dockerfile` in your project's root directory you can commit your changes and push them to your repo on Github or Gitlab.
+
+:::tip
+Remember to change `myproject` to match your project's name.
+:::
 
 ### Link your repository to DigitalOcean
 
-In order to link your project's repo to App Platform, you must link your Github or Gitlab account to DigitalOcean. Then when you initialize
+In order to link your project's repo to App Platform, you must link your Github or Gitlab account to DigitalOcean. Then, when you initialize
 a new instance in App Platform you must select your project's repo from the list of repos in your linked account, its branch and if you want AppPlatform
 to re-deploy your project in every update.
 
