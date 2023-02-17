@@ -2,7 +2,7 @@
 
 import {HeaderBadgesWidget} from '@site/src/components/molecules/HeaderBadgesWidget';
 
-<HeaderBadgesWidget commaDelimitedContributors="JeysonFlores" lastVerifiedDateString="February 15th, 2023" />
+<HeaderBadgesWidget commaDelimitedContributors="JeysonFlores" lastVerifiedDateString="February 16th, 2023" />
 
 App Platform is a Platform-as-a-Service (PaaS) offering that allows developers to publish code directly to DigitalOcean servers without worrying about the underlying infrastructure.
 
@@ -28,7 +28,10 @@ async fn main() {
     app.run("0.0.0.0:8080").await;
 }
 ```
+
+:::caution
 Please observe that the port and host of this example is `0.0.0.0:8080`. This is the way App Platform [can detect and manage](https://docs.digitalocean.com/support/how-to-troubleshoot-apps-in-app-platform/#check-for-a-misconfigured-port-or-network-interface) your app.
+:::
 
 ### The Dockerfile
 If you are already using Docker for Rust projects, you probably have your own set of configurations and tweaks to improve your container size and build times. 
