@@ -1,0 +1,89 @@
+# DigitalOcean App Platform
+
+import {HeaderBadgesWidget} from '@site/src/components/molecules/HeaderBadgesWidget';
+
+<HeaderBadgesWidget commaDelimitedContributors="JeysonFlores" lastVerifiedDateString="February 16th, 2023" />
+
+App Platform is a Platform-as-a-Service (PaaS) offering that allows developers to publish code directly to DigitalOcean servers without worrying about the underlying infrastructure.
+
+Currently App Platform does not support Rust in their set of available runtimes, however it can run any application packaged inside a Docker container.
+
+## Deploying your project
+### Your source code
+As an example, let's say your project name is `myproject` and its source code looks like this:
+
+
+```rust
+use graphul::{Graphul, http::Methods};
+
+
+#[tokio::main]
+async fn main() {
+    let mut app = Graphul::new();
+
+    app.get("/", || async {
+        "Hello, World 👋!"
+    });
+
+    app.run("0.0.0.0:8080").await;
+}
+```
+
+:::caution
+Please observe that the port and host of this example is `0.0.0.0:8080`. This is the way App Platform [can detect and manage](https://docs.digitalocean.com/support/how-to-troubleshoot-apps-in-app-platform/#check-for-a-misconfigured-port-or-network-interface) your app.
+:::
+
+### The Dockerfile
+If you are already using Docker for Rust projects, you probably have your own set of configurations and tweaks to improve your container size and build times. 
+However in this example we're going to use the following Dockerfile and place it on the root directory of our project.
+
+```dockerfile
+
+FROM rust:1.67-slim-buster as build
+
+# create a new empty shell project
+RUN USER=root cargo new --bin myproject
+WORKDIR /myproject
+
+# copy over your manifests
+COPY ./Cargo.lock ./Cargo.lock
+COPY ./Cargo.toml ./Cargo.toml
+
+# this build step will cache your dependencies
+RUN cargo build --release
+RUN rm src/*.rs
+
+# copy your source tree
+COPY ./src ./src
+
+# build for release
+RUN rm ./target/release/deps/myproject*
+RUN cargo build --release
+
+# our final base
+FROM rust:1.67-slim-buster
+
+# copy the build artifact from the build stage
+COPY --from=build /myproject/target/release/myproject .
+
+# set the startup command to run your binary
+CMD ["./myproject"]
+```
+
+Once you have the `Dockerfile` in your project's root directory you can commit your changes and push them to your repo on Github or Gitlab.
+
+:::tip
+Remember to change `myproject` to match your project's name.
+:::
+
+### Link your repository to DigitalOcean
+
+In order to link your project's repo to App Platform, you must link your Github or Gitlab account to DigitalOcean. Then, when you initialize
+a new instance in App Platform you must select your project's repo from the list of repos in your linked account, its branch and if you want AppPlatform
+to re-deploy your project in every update.
+
+import TemplateImage from './assets/do_create_app.png';
+
+<img src={TemplateImage} alt="DigitalOcean Create App Screen" />
+
+Once you finished selecting your instance configuration, your app will be built by DigitalOcean and deployed.
