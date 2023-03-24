@@ -134,12 +134,48 @@ async fn your_handler(_ctx: Context<AppState>) {
 
 The path params are accessible with a definition of the path, for example:
 
+
+<Tabs>
+  <TabItem value="using-path-extractor" label="Using Path Extractor" default>
+
+<Tabs>
+  <TabItem value="using-path-extractor-with-wrapper" label="With wrapper" default>
+
+```rust
+  app.get("/:name", |name: Path<String>| async move {
+      format!("Hi {}!", name.0)
+  });
+```
+  </TabItem>
+    <TabItem value="using-path-extractor-removing-wrapper" label="Without wrapper" default>
+
+```rust
+  app.get("/:name", |Path(name): Path<String>| async move {
+      format!("Hi {name}!")
+  });
+```
+  </TabItem>
+</Tabs>
+
+:::info
+
+Graphul maintains the extractors of Axum
+
+:::
+
+  </TabItem>
+  <TabItem value="using-params" label="Using params" default>
+
 ```rust
   app.get("/:name", |c: Context| async move {
     let name = c.params("name");
-    name
+    format!("Hi {name}")
   });
 ```
+
+  </TabItem>
+</Tabs>
+
 
 We declare the parameter using the `:` to define a parameter and then you can access the parameter of type [Context](context) to get the query parameters inside of the handler.
 
@@ -149,9 +185,43 @@ We declare the parameter using the `:` to define a parameter and then you can ac
 The Query Params are too similar to the Path Params.
 In this case, we just call the function `query` to access the Query Params.
 
+<Tabs>
+  <TabItem value="using-query-extractor" label="Using Query Extractor" default>
+
+<Tabs>
+  <TabItem value="using-query-extractor-with-wrapper" label="With wrapper" default>
+
+```rust
+  app.get("/", |name: Query<String>| async move {
+      format!("Hi {}!", name.0)
+  });
+```
+  </TabItem>
+    <TabItem value="using-query-extractor-removing-wrapper" label="Without wrapper" default>
+
+```rust
+  app.get("/", |Query(name): Query<String>| async move {
+      format!("Hi {name}!")
+  });
+```
+  </TabItem>
+</Tabs>
+
+:::info
+
+Graphul maintains the extractors of Axum
+
+:::
+
+  </TabItem>
+  <TabItem value="using-query" label="Using query" default>
+
 ```rust
   app.get("/", |c: Context| async move {
     let name = c.query("name");
-    name
+    format!("Hi {name}!")
   });
 ```
+
+  </TabItem>
+</Tabs>
